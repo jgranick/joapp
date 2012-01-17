@@ -1,6 +1,6 @@
-<project name="joapp" url="http://www.joapp.com/" license="BSD">
+<project name="joapp" url="http://www.joapp.com/" license="MIT">
     <user name="elyon"/>
     <tag v="js"/>
     <description>Provides support for Jo in Javascript applications</description>
-    <version name="1.00">Initial release</version>
+    <version name="1.01">Fixed license</version>
 </project>
