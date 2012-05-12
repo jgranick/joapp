@@ -2,5 +2,5 @@
     <user name="elyon"/>
     <tag v="js"/>
     <description>Provides support for Jo in Javascript applications</description>
-    <version name="1.01">Fixed license</version>
+    <version name="1.02">Using BuildHX for extern generation</version>
 </project>

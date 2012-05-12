@@ -1,19 +1,19 @@
+package ;
+
 @:native ("joGesture")
 extern class JoGesture {
 
-	
-	public static var defaultEvent:JoSubject;
-	public static var backEvent:JoSubject;
-	public static var resizeEvent:JoSubject;
-	public static var forwardEvent:JoSubject;
-	public static var upEvent:JoSubject;
-	public static var downEvent:JoSubject;
-	public static var leftEvent:JoSubject;
-	public static var rightEvent:JoSubject;
-	public static var homeEvent:JoSubject;
-	public static var closeEvent:JoSubject;
-	public static var activateEvent:JoSubject;
-	public static var deactivateEvent:JoSubject;
-	
-	
+	public static function activateEvent ():Void;
+	public static function backEvent ():Void;
+	public static function closeEvent ():Void;
+	public static function deactivateEvent ():Void;
+	public static function defaultEvent ():Void;
+	public static function downEvent ():Void;
+	public static function forwardEvent ():Void;
+	public static function homeEvent ():Void;
+	public static function leftEvent ():Void;
+	public static function resizeEvent ():Void;
+	public static function rightEvent ():Void;
+	public static function upEvent ():Void;
+
 }

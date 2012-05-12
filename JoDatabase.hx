@@ -1,9 +1,9 @@
-@:native ("joDatabase")
-class JoDatabase {
+package ;
 
-	
-	public function open (datafile:String, ?size:Int):JoDatabase;
+@:native ("joDatabase")
+extern class JoDatabase {
+
 	public function close ():JoDatabase;
-	
-	
+	public function open (datafile:String, ?size:Int):JoDatabase;
+
 }

@@ -1,0 +1,484 @@
+<?xml version="1.0" encoding="utf-8"?>
+<buildhx>
+	
+	<output path="" />
+	
+	<class name="jo">
+		
+		<static-method name="load" />
+		<static-method name="getPlatform" return="String" />
+		<static-method name="getVersion" return="String" />
+		<static-method name="matchPlatform" params="names:String" return="Bool" />
+		
+	</class>
+	
+	<class name="joBusy" extends="joView">
+		
+		<method name="setMessage" params="status:String" return="joBusy" />
+		
+	</class>
+	
+	<class name="joButton" extends="joControl">
+		
+		<constructor params="?data:Dynamic, ?classname:String" />
+		
+	</class>
+	
+	<class name="joCache">
+		
+		<static-method name="set" params="key:String, call:Dynamic, ?context:Dynamic" return="joCache" />
+		<static-method name="get" params="key:String" return="Dynamic" />
+		<static-method name="clear" params="key:String" return="joCache" />
+		
+	</class>
+	
+	<class name="joCaption" extends="joControl" />
+	
+	<class name="joCard" extends="joContainer">
+		
+		<method name="activate" return="joCard" />
+		<method name="deactivate" return="joCard" />
+		
+	</class>
+	
+	<class name="joChain">
+		
+		<method name="add" params="method:Dynamic, context:Dynamic, data:Dynamic" return="joChain" />
+		<method name="start" return="joChain" />
+		<method name="stop" return="joChain" />
+		<method name="next" return="joChain" />
+		
+	</class>
+	
+	<class name="joClipboard">
+		
+		<static-method name="get" return="String" />
+		<static-method name="set" params="value:String" />
+		<static-method name="cut" params="control:joControl" />
+		<static-method name="copy" params="control:joControl" />
+		<static-method name="paste" params="control:joControl" />
+		
+	</class>
+	
+	<class name="joContainer" extends="joView">
+		
+		<method name="push" params="data:Dynamic" return="joContainer" />
+		<method name="setTitle" params="title:String" return="joContainer" />
+		<method name="getTitle" return="String" />
+		
+	</class>
+	
+	<class name="joControl" extends="joView">
+		
+		<property name="selectEvent" type="joSubject" />
+		
+		<constructor params="?data:Dynamic, ?value:Dynamic" />
+		
+		<method name="enable" return="joControl" />
+		<method name="disable" return="joControl" />
+		<method name="focus" return="joControl" />
+		<method name="blur" return="joControl" />
+		<method name="setDataSource" params="dataSource:joDataSource" return="joControl" />
+		<method name="setValueSource" params="dataSource:joDataSource" return="joControl" />
+		<method name="setReadOnly" params="state:Bool" return="joControl" />
+		
+	</class>
+	
+	<class name="joCSSRule">
+		
+		<constructor params="?data:Dynamic" />
+		
+		<method name="setData" params="?data:Dynamic" />
+		<method name="clear" />
+		<method name="disable" />
+		<method name="enable" />
+		
+	</class>
+	
+	<class name="joDatabase">
+		
+		<method name="open" params="datafile:String, ?size:Int" return="joDatabase" />
+		<method name="close" return="joDatabase" />
+		
+	</class>
+	
+	<class name="joDataSource">
+		
+		<property name="changeEvent" type="joSubject" />
+		<property name="errorEvent" type="joSubject" />
+		
+		<constructor params="?data:Dynamic" />
+		
+		<method name="set" return="joDataSource" />
+		<method name="get" return="Dynamic" />
+		<method name="clear" return="joDataSource" />
+		<method name="setQuery" params="query:String" return="joDataSource" />
+		<method name="getQuery" return="String" />
+		<method name="load" return="joDataSource" />
+		<method name="refresh" return="joDataSource" />
+		
+	</class>
+	
+	<class name="joDefer">
+		
+		<constructor params="method:Dynamic, context:Dynamic, delay:Float, ?data:Dynamic" />
+		
+	</class>
+	
+	<class name="joDialog" extends="joShim" />
+	
+	<class name="joDispatch">
+		
+		<property name="errorEvent" type="joSubject" />
+		<property name="loadEvent" type="joSubject" />
+		
+		<method name="load" params="url:String" return="joDispatch" />
+		<method name="addHandler" params="url:String, call:Dynamic, ?context:Dynamic" return="joDispatch" />
+		<method name="getHandler" params="url:String" return="Dynamic" />
+		
+	</class>
+	
+	<class name="joDivider" extends="joView" />
+	
+	<class name="joDOM">
+		
+		<import name="js.Dom" />
+		
+		<static-method name="get" params="id:String" return="HtmlDom" />
+		<static-method name="create" params="type:String, style:String" return="HtmlDom" />
+		<static-method name="setStyle" params="tag:String, style:String" />
+		<static-method name="getParentWithin" params="node:HtmlDom, ancestor:HtmlDom" return="HtmlDom" />
+		<static-method name="addCSSClass" params="element:HtmlDom, classname:String" />
+		<static-method name="removeCSSClass" params="element:HtmlDom, classname:String" />
+		<static-method name="toggleCSSClass" params="element:HtmlDom, classname:String" />
+		<static-method name="pageOffsetLeft" params="element:HtmlDom" />
+		<static-method name="pageOffsetHeight" params="element:HtmlDom" />
+		<static-method name="applyCSS" params="css:String, ?stylenode:HtmlDom" return="HtmlDom" />
+		<static-method name="loadCSS" params="filename:String" />
+		<static-method name="removeCSS" params="stylenode:HtmlDom" />
+		
+	</class>
+	
+	<class name="joEvent">
+		
+		<import name="js.Dom" />
+		
+		<static-method name="on" params="element:HtmlDom, event:Dynamic, method:Dynamic, context:Dynamic, data:Dynamic" return="Dynamic" />
+		<static-method name="capture" params="element:HtmlDom, event:Dynamic, method:Dynamic, context:Dynamic, data:Dynamic" return="Dynamic" />
+		<static-method name="remove" params="element:HtmlDom, event:Dynamic, handler:Dynamic" />
+		<static-method name="stop" params="event:Dynamic" />
+		<static-method name="preventDefault" params="event:Dynamic" />
+		<static-method name="block" params="event:Dynamic" />
+		<static-method name="getTarget" params="event:Dynamic" return="HtmlDom" />
+		
+	</class>
+	
+	<class name="joExpando" extends="joContainer">
+		
+		<property name="openEvent" type="joSubject" />
+		<property name="closeEvent" type="joSubject" />
+		
+		<method name="open" return="joExpando" />
+		<method name="close" return="joExpando" />
+		<method name="toggle" return="joExpando" />
+		
+	</class>
+	
+	<class name="joExpandoContent" extends="joContainer" />
+	<class name="joExpandoTitle" extends="joControl" />
+	
+	<class name="joFileSource" extends="joDataSource">
+		
+		<constructor params="?url:String, ?timeout:Int" />
+		
+	</class>
+	
+	<class name="joFlexcol" extends="joContainer" />
+	<class name="joFlexrow" extends="joContainer" />
+	
+	<class name="joFocus">
+		
+		<static-method name="set" params="control:joControl" />
+		<static-method name="clear" />
+		<static-method name="refresh" />
+		
+	</class>
+	
+	<class name="joFooter" extends="joContainer" />
+	<class name="joForm" extends="joContainer" />
+	
+	<class name="joGesture">
+		
+		<static-method name="defaultEvent" type="joSubject" />
+		<static-method name="backEvent" type="joSubject" />
+		<static-method name="resizeEvent" type="joSubject" />
+		<static-method name="forwardEvent" type="joSubject" />
+		<static-method name="upEvent" type="joSubject" />
+		<static-method name="downEvent" type="joSubject" />
+		<static-method name="leftEvent" type="joSubject" />
+		<static-method name="rightEvent" type="joSubject" />
+		<static-method name="homeEvent" type="joSubject" />
+		<static-method name="closeEvent" type="joSubject" />
+		<static-method name="activateEvent" type="joSubject" />
+		<static-method name="deactivateEvent" type="joSubject" />
+		
+	</class>
+	
+	<class name="joGroup" extends="joContainer" />
+	<class name="joHTML" extends="joControl" />
+	
+	<class name="joImage" extends="joControl">
+		
+		<property name="loadEvent" type="joSubject" />
+		<property name="errorEvent" type="joSubject" />
+		
+	</class>
+	
+	<class name="joInput" extends="joControl" />
+	
+	<class name="joInterface" implements="Dynamic">
+		
+		<import name="js.Dom" />
+		
+		<constructor params="parent:HtmlDom" />
+		
+	</class>
+	
+	<class name="joLabel" extends="joView" />
+	
+	<class name="joList" extends="joControl">
+		
+		<method name="formatItem" params="data:Dynamic, index:Int" return="joList" />
+		<method name="compareItems" params="a:Float, b:Float" return="joList" />
+		<method name="setDefault" params="message:String" return="joList" />
+		<method name="getNodeData" params="index:Int" return="Dynamic" />
+		<method name="getLength" return="Int" />
+		<method name="next" return="joList" />
+		<method name="prev" return="joList" />
+		<method name="setAutoSort" params="value:Bool" return="joList" />
+		
+	</class>
+	
+	<class name="joLog">
+		
+		<constructor params="?p1:Dynamic, ?p2:Dynamic, ?p3:Dynamic, ?p4:Dynamic, ?p5:Dynamic, ?p6:Dynamic" />
+		
+	</class>
+	
+	<class name="joMenu" extends="joList" />
+	
+	<class name="joNavbar" extends="joContainer">
+		
+		<constructor params="?title:String" />
+		
+		<method name="back" return="joNavbar" />
+		<method name="setStack" params="stack:Dynamic" return="joNavbar" />
+		
+	</class>
+	
+	<class name="joOption" extends="joMenu" />
+	<class name="joPasswordInput" extends="joInput" />
+	
+	<class name="joPopup" extends="joContainer">
+		
+		<property name="showEvent" type="joSubject" />
+		<property name="hideEvent" type="joSubject" />
+		
+		<constructor />
+		
+		<method name="show" return="joPopup" />
+		<method name="hide" return="joPopup" />
+		
+	</class>
+	
+	<class name="joRecord" extends="joDataSource">
+		
+		<method name="link" params="property:String" return="Dynamic" />
+		<method name="save" return="joRecord" />
+		<method name="load" return="joRecord" />
+		<method name="getProperty" params="property:String" return="Dynamic" />
+		<method name="setProperty" params="property:String, value:Dynamic" return="joRecord" />
+		<method name="getDelegate" params="property:String" return="Dynamic" />
+		
+	</class>
+	
+	<class name="joScreen" extends="joContainer">
+		
+		<property name="resizeEvent" type="joSubject" />
+		<property name="menuEvent" type="joSubject" />
+		<property name="activateEvent" type="joSubject" />
+		<property name="deactivateEvent" type="joSubject" />
+		<property name="backEvent" type="joSubject" />
+		<property name="forwardEvent" type="joSubject" />
+		
+		<method name="alert" params="title:String, ?message:String, ?buttons:Array <JoButton>" return="joScreen" />
+		<method name="showPopup" params="view:joView" return="joScreen" />
+		<method name="hidePopup" params="?view:joView" return="joScreen" />
+		
+	</class>
+	
+	<class name="joScript">
+		
+		<constructor params="url:String, callbck:Dynamic, ?context:Dynamic, ?errorCallback:Dynamic, ?errorContext:Dynamic" />
+		
+	</class>
+	
+	<class name="joScroller" extends="joContainer">
+		
+		<method name="scrollBy" params="position:Float" return="joScroller" />
+		<method name="scrollTo" params="target:Dynamic" return="joScroller" />
+		<method name="setScroll" params="horizontal:Float, vertical:Float" return="joScroller" />
+		
+	</class>
+	
+	<class name="joSelect" extends="joExpando">
+		
+		<property name="selectEvent" type="joSubject" />
+		<property name="field" type="joSelectTitle" />
+		<property name="list" type="joList" />
+		
+	</class>
+	
+	<class name="joSelectList" extends="joList" />
+	<class name="joSelectTitle" extends="joExpandoTitle" />
+	
+	<class name="joShim" extends="joView">
+		
+		<property name="showEvent" type="joSubject" />
+		<property name="hideEvent" type="joSubject" />
+		
+		<method name="show" return="joShim" />
+		<method name="hide" return="joShim" />
+		
+	</class>
+	
+	<class name="joSlider" extends="joControl">
+		
+		<method name="setRange" params="min:Float, max:Float, snap:Float" return="joSlider" />
+		
+	</class>
+	
+	<class name="joSound">
+		
+		<property name="endedEvent" type="joSubject" />
+		<property name="errorEvent" type="joSubject" />
+		<property name="play" return="joSound" />
+		<property name="pause" return="joSound" />
+		<property name="rewind" return="joSound" />
+		<property name="stop" return="joSound" />
+		<property name="setLoop" params="n:Int" return="joSound" />
+		<property name="setVolume" params="level:Float" return="joSound" />
+		
+	</class>
+	
+	<class name="joSQLDataSource" extends="joDataSource">
+		
+		<method name="setDatabase" params="database:joDatabase" return="joSQLDataSource" />
+		<method name="setQuery" params="query:String" return="joSQLDataSource" />
+		<method name="setParameters" params="args:Array <Dynamic>" return="joSQLDataSource" />
+		<method name="execute" params="?query:String, ?args:Array <Dynamic>" return="joSQLDataSource" />
+		
+	</class>
+	
+	<class name="joStack" extends="joView">
+		
+		<property name="showEvent" type="joSubject" />
+		<property name="hideEvent" type="joSubject" />
+		<property name="homeEvent" type="joSubject" />
+		<property name="pushEvent" type="joSubject" />
+		<property name="popEvent" type="joSubject" />
+		
+		<method name="push" params="object:Dynamic" return="joStack" />
+		<method name="pop" return="joStack" />
+		<method name="home" return="joStack" />
+		<method name="show" return="joStack" />
+		<method name="hide" return="joStack" />
+		<method name="forward" return="joStack" />
+		<method name="back" return="joStack" />
+		<method name="setLocked" params="value:Bool" return="joStack" />
+		
+	</class>
+	
+	<class name="joStackScroller" extends="joStack">
+		
+		<method name="scrollBy" params="position:Float" return="joStackScroller" />
+		<method name="scrollTo" params="target:Dynamic" return="joStackScroller" />
+		
+	</class>
+	
+	<class name="joSubject">
+		
+		<method name="subscribe" params="method:Dynamic, ?context:Dynamic, ?data:Dynamic" return="joSubject" />
+		<method name="unsubscribe" params="method:Dynamic, ?context:Dynamic" return="joSubject" />
+		<method name="capture" params="method:Dynamic, ?context:Dynamic, ?data:Dynamic" return="joSubject" />
+		<method name="release" params="method:Dynamic, ?context:Dynamic" return="joSubject" />
+		<method name="fire" params="data:Dynamic" return="joSubject" />
+		<method name="resume" params="data:Dynamic" return="joSubject" />
+		
+	</class>
+	
+	<class name="joTabBar" extends="joList" />
+	
+	<class name="joTable" extends="joList">
+		
+		<method name="setCell" params="row:Int, column:Int" return="joTable" />
+		<method name="getRow" return="Dynamic" />
+		<method name="getCol" return="Dynamic" />
+		
+	</class>
+	
+	<class name="joTextarea" extends="joInput" />
+	
+	<class name="joTime">
+		
+		<static-property name="SEC" type="Int" />
+		<static-property name="MIN" type="Int" />
+		<static-property name="HOUR" type="Int" />
+		<static-property name="DAY" type="Int" />
+		
+		<static-method name="timestamp" return="String" />
+		
+	</class>
+	
+	<class name="joTitle" extends="joContainer" />
+	
+	<class name="joToggle" extends="joControl">
+		
+		<method name="setLabels" params="labels:Array <String>" return="joToggle" />
+		
+	</class>
+	
+	<class name="joToolbar" extends="joContainer" />
+	
+	<class name="joView">
+		
+		<import name="js.Dom" />
+		
+		<property name="changeEvent" type="joSubject" />
+		
+		<constructor params="?data:Dynamic" />
+		
+		<method name="setData" params="data:Dynamic" return="joView" />
+		<method name="getData" return="Dynamic" />
+		<method name="createContainer" params="type:String, classname:String" return="joView" />
+		<method name="setContainer" params="element:HtmlDom" return="joView" />
+		<method name="getContainer" return="HtmlDom" />
+		<method name="clear" return="joView" />
+		<method name="refresh" return="joView" />
+		<method name="attach" params="element:Dynamic" return="joView" />
+		<method name="detach" params="element:Dynamic" return="joView" />
+		<method name="setStyle" params="style:Dynamic" return="joView" />
+		
+	</class>
+	
+	<class name="joYQL" extends="joDataSource">
+		
+		<property name="setQuery" type="Dynamic" />
+		
+		<constructor params="query:String" />
+		
+		<method name="exec" return="joYQL" />
+		
+	</class>
+	
+</buildhx>
